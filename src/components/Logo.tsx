@@ -1,6 +1,7 @@
 'use client'
 
 import { useTheme } from '@/contexts/ThemeContext'
+import Image from 'next/image'
 
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg'
@@ -20,17 +21,16 @@ export default function Logo({ size = 'md', showText = true }: LogoProps) {
 
   return (
     <div className="flex flex-col items-center">
-      {/* Logo gráfico */}
-      <div className={`${sizeClasses[size]} relative bg-white rounded-full flex items-center justify-center shadow-lg`}>
-        {/* Cruz verde y azul */}
-        <div className="absolute top-1/2 left-0 w-full h-1 bg-primary-green transform -translate-y-1/2"></div>
-        <div className="absolute left-1/2 top-0 w-1 h-full bg-primary-blue transform -translate-x-1/2"></div>
-        
-        {/* Silueta de perro (blanca) */}
-        <div className="absolute top-1 left-1 w-3 h-3 bg-white rounded-full border-2 border-primary-green"></div>
-        
-        {/* Silueta de gato (blanca) */}
-        <div className="absolute bottom-1 right-1 w-3 h-3 bg-white rounded-full border-2 border-primary-blue"></div>
+      {/* Logo gráfico usando la imagen */}
+      <div className={`${sizeClasses[size]} relative flex items-center justify-center`}>
+        <Image
+          src="/logo.PNG"
+          alt="Centro Veterinario Pereyra Logo"
+          width={size === 'sm' ? 32 : size === 'md' ? 48 : 64}
+          height={size === 'sm' ? 32 : size === 'md' ? 48 : 64}
+          className="rounded-full shadow-lg"
+          priority
+        />
       </div>
 
       {/* Texto del logo */}
