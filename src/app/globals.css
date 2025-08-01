@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Variables CSS para temas */
+  :root {
+    --bg-primary: #0F0F0F;
+    --bg-secondary: #1A1A1A;
+    --bg-tertiary: #2D2D2D;
+    --text-primary: #FFFFFF;
+    --text-secondary: #E5E7EB;
+    --text-muted: #9CA3AF;
+    --border-color: #404040;
+  }
+
+  /* Modo claro */
+  .light {
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F9FAFB;
+    --bg-tertiary: #F3F4F6;
+    --text-primary: #111827;
+    --text-secondary: #374151;
+    --text-muted: #6B7280;
+    --border-color: #E5E7EB;
+  }
+
+  /* Modo oscuro */
+  .dark {
+    --bg-primary: #0F0F0F;
+    --bg-secondary: #1A1A1A;
+    --bg-tertiary: #2D2D2D;
+    --text-primary: #FFFFFF;
+    --text-secondary: #E5E7EB;
+    --text-muted: #9CA3AF;
+    --border-color: #404040;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-green to-primary-blue text-white font-semibold py-3 px-8 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-dark-700 text-white font-semibold py-3 px-8 rounded-full hover:bg-dark-600 transition-all duration-300;
+  }
+  
+  .card {
+    @apply bg-dark-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Clases para modo claro */
+  .light .btn-secondary {
+    @apply bg-gray-200 text-gray-900 hover:bg-gray-300;
+  }
+
+  .light .card {
+    @apply bg-white border border-gray-200;
+  }
+
+  .light .section-padding {
+    @apply bg-gray-50;
+  }
+
+  /* Mejoras para el tema claro */
+  .light .bg-dark-900 {
+    @apply bg-white;
+  }
+
+  .light .bg-dark-800 {
+    @apply bg-gray-50;
+  }
+
+  .light .bg-dark-700 {
+    @apply bg-gray-100;
+  }
+
+  .light .text-white {
+    @apply text-gray-900;
+  }
+
+  .light .text-gray-300 {
+    @apply text-gray-600;
+  }
+
+  .light .text-gray-400 {
+    @apply text-gray-500;
+  }
+
+  .light .border-dark-700 {
+    @apply border-gray-200;
+  }
+
+  .light .border-dark-600 {
+    @apply border-gray-300;
+  }
+} 
