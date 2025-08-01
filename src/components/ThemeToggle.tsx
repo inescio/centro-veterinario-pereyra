@@ -5,26 +5,27 @@ import { useTheme } from '@/contexts/ThemeContext'
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
 
+  const bg = theme === 'dark' ? 'bg-gray-600' : 'bg-gray-200'
+  const slider = theme === 'dark' ? 'bg-white' : 'bg-gray-700'
+  const ringOffset = theme === 'dark' ? 'focus:ring-offset-dark-900' : 'focus:ring-offset-white'
+
   return (
     <button
       onClick={toggleTheme}
-      className="relative w-12 h-6 bg-gray-600 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2 focus:ring-offset-dark-900"
+      className={`relative w-12 h-6 ${bg} rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-green ${ringOffset}`}
       aria-label={`Cambiar a modo ${theme === 'dark' ? 'claro' : 'oscuro'}`}
     >
       {/* Slider */}
       <div
-        className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform duration-300 transform ${
+        className={`absolute top-0.5 left-0.5 w-5 h-5 ${slider} rounded-full transition-transform duration-300 transform ${
           theme === 'light' ? 'translate-x-6' : 'translate-x-0'
         }`}
       />
-      
       {/* Iconos */}
       <div className="absolute inset-0 flex items-center justify-between px-1.5">
         {/* Sol */}
         <svg
-          className={`w-3 h-3 transition-colors duration-300 ${
-            theme === 'light' ? 'text-yellow-500' : 'text-gray-400'
-          }`}
+          className={`w-3 h-3 transition-colors duration-300 ${theme === 'light' ? 'text-yellow-500' : 'text-gray-300'}`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -34,12 +35,9 @@ export default function ThemeToggle() {
             clipRule="evenodd"
           />
         </svg>
-        
         {/* Luna */}
         <svg
-          className={`w-3 h-3 transition-colors duration-300 ${
-            theme === 'dark' ? 'text-blue-400' : 'text-gray-400'
-          }`}
+          className={`w-3 h-3 transition-colors duration-300 ${theme === 'dark' ? 'text-blue-400' : 'text-gray-500'}`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >

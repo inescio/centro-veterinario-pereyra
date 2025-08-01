@@ -1,6 +1,7 @@
 'use client'
 
 import { useTheme } from '@/contexts/ThemeContext'
+import Image from 'next/image'
 
 export default function AboutUs() {
   const { theme } = useTheme()
@@ -72,34 +73,16 @@ export default function AboutUs() {
             </div>
           </div>
 
-          {/* Imagen/Placeholder */}
-          <div className="relative">
-            <div className={`w-full h-96 rounded-2xl overflow-hidden shadow-2xl ${
-              theme === 'dark' ? 'bg-dark-800' : 'bg-white'
-            } transition-colors duration-300`}>
-              {/* Placeholder para imagen */}
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center">
-                  <div className={`w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center ${
-                    theme === 'dark' ? 'bg-dark-700' : 'bg-gray-100'
-                  } transition-colors duration-300`}>
-                    <svg className="w-12 h-12 text-primary-green" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <p className={`text-lg font-semibold ${textColor} transition-colors duration-300`}>
-                    Centro Veterinario Pereyra
-                  </p>
-                  <p className={`text-sm ${textMuted} transition-colors duration-300`}>
-                    Instalaciones modernas y equipamiento de última generación
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Elementos decorativos */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary-green rounded-full opacity-20"></div>
-            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary-blue rounded-full opacity-20"></div>
+          {/* Logo grande centrado */}
+          <div className="flex justify-center items-center">
+            <Image
+              src="/logo.PNG"
+              alt="Logo Centro Veterinario Pereyra"
+              width={260}
+              height={260}
+              className="object-contain shadow-2xl rounded-full"
+              priority
+            />
           </div>
         </div>
 
