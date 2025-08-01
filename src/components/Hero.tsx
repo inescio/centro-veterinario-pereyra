@@ -43,7 +43,7 @@ export default function Hero() {
 
         {/* Subtítulo */}
         <p className={`text-xl md:text-2xl mb-8 ${textSecondary} transition-colors duration-300`}>
-          Servicio para mascotas. Medicina veterinaria.
+          Servicio para mascotas y ganado. Medicina veterinaria.
         </p>
 
         {/* Descripción */}
